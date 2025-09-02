@@ -9,8 +9,10 @@ export function fetchProducts() {
       dispatch(setLoading());
       dispatch(clearError()); // ✅ إضافة clearError هنا
       
-      const response = await fetch("https://my-json-server.typicode.com/asama7lmy/fake-api/products");
-      
+      const response = await fetch(" https://my-json-server.typicode.com/asama7lmy/fake-api/products");
+      // https://my-json-server.typicode.com/asama7lmy/fake-api/products
+      // https://my-json-server.typicode.com/asama7lmy/fake-api/products
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -32,7 +34,7 @@ export function fetchSingleProduct(productId) {
       dispatch(setLoading());
       dispatch(clearError()); // ✅ إضافة clearError هنا
       
-      const response = await fetch(`https://my-json-server.typicode.com/asama7lmy/fake-api/products/${productId}`);
+      const response = await fetch(` https://my-json-server.typicode.com/asama7lmy/fake-api/products/${productId}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

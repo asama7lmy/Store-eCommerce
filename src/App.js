@@ -67,17 +67,20 @@ import SpecialOffersPage from './pages/special-offers-page/SpecialOffersPage';
 
 function App() {
   return (
-    <HashRouter>
-      <Header />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<SingleProduct />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/special-offers/:id" element={<SpecialOffersPage />} />
-      </Routes>
-      <Footer />
-    </HashRouter>
+<>
+      <HashRouter>
+        <Header />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/special-offers/:id" element={<SpecialOffersPage />} />
+        </Routes>
+        <Footer />
+      </HashRouter>
+      
+</>
   );
 }
 
