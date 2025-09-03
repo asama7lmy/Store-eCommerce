@@ -19,7 +19,7 @@ const Slider = ({ data }) => {
   return (
     <div className="slider-container">
       <button
-        disabled={slideIndex === -data.length}
+        disabled={slideIndex === -data.length-1}
         onClick={() => handleClick("left")}
         className="bi bi-chevron-left arrow-left"
       ></button>
@@ -37,7 +37,7 @@ const Slider = ({ data }) => {
         ))}
       </div>
       <button
-        disabled={slideIndex === 1}
+        disabled={slideIndex === 0}
         onClick={() => handleClick("right")}
         className="bi bi-chevron-right arrow-right"
       ></button>
