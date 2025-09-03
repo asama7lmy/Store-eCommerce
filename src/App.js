@@ -68,7 +68,7 @@ import SpecialOffersPage from './pages/special-offers-page/SpecialOffersPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Store-eCommerce">
       <Header />
       <Routes>
         <Route index element={<Home />} />
