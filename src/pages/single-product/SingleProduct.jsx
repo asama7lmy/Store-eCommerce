@@ -110,14 +110,13 @@ const SingleProduct = () => {
   if (error) return <div>Error: {error}</div>;
   if (!product) return <Spinner />;
 
-  // المسار الكامل للصورة
-  const fullImageUrl = `${process.env.PUBLIC_URL}${product.image}`;
+
 
   return (
     <div className="single-product">
       <div className="product-wrapper">
         <div className="product-image-wrapper">
-          <img src={fullImageUrl} alt={product.title} />
+          <img src={product.image} alt={product.title} />
         </div>
         <div className="product-info">
           <h1 className="product-title">{product.title}</h1>
