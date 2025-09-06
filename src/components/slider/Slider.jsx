@@ -52,7 +52,6 @@ import { useState } from "react";
 import "./slider.css";
 import Rating from "../rating/Rating";
 import { Link } from "react-router-dom";
-import { getImageUrl } from "../../utils/getImageUrl"; // ✅ استدعاء الدالة
 
 const Slider = ({ data }) => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -72,25 +71,19 @@ const Slider = ({ data }) => {
         onClick={() => handleClick("left")}
         className="bi bi-chevron-left arrow-left"
       ></button>
-
       <div
         style={{ transform: `translate(${slideIndex * -250}px)` }}
         className="slider-wrapper"
       >
         {data.map((item) => (
           <Link to={`/products/${item.id}`} className="slide" key={item.id}>
-            <img
-              className="slide-image"
-              src={getImageUrl(item.image)}
-              alt={item.title}
-            />
+            <img className="slide-image" src={item.image} alt={item.title} />
             <h3 className="slide-title">{item.title}</h3>
             <Rating rating={item.rating} reviews={item.reviews} />
             <div className="slide-price">${item.price}</div>
           </Link>
         ))}
       </div>
-
       <button
         disabled={slideIndex === 0}
         onClick={() => handleClick("right")}

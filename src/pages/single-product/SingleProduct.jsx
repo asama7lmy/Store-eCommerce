@@ -84,7 +84,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchSingleProduct } from "../../redux/apiCalls/productApiCall";
 import Spinner from "../../components/spinner/Spinner";
 import { addToCart } from "../../redux/apiCalls/cartApiCall";
-import { getImageUrl } from "../../utils/getImageUrl"; // ✅ استدعاء الدالة
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -102,7 +101,7 @@ const SingleProduct = () => {
       dispatch(
         addToCart({
           id: product.id,
-          quantity: quantity,
+          quantity,
           price: product.price,
           title: product.title,
           image: product.image,
@@ -119,7 +118,7 @@ const SingleProduct = () => {
     <div className="single-product">
       <div className="product-wrapper">
         <div className="product-image-wrapper">
-          <img src={getImageUrl(product.image)} alt={product.title} />
+          <img src={product.image} alt={product.title} />
         </div>
         <div className="product-info">
           <h1 className="product-title">{product.title}</h1>
@@ -146,4 +145,3 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
-

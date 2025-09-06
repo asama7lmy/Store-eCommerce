@@ -1,20 +1,17 @@
 // src/utils/getImageUrl.js
-
-// دالة لتصليح مسار الصور سواء خارجي أو داخلي
 export const getImageUrl = (url) => {
   if (!url) return "";
 
-  // ✅ لو اللينك خارجي (بيبدأ بـ http)
+  // ✅ رابط صحيح خارجي
   if (url.startsWith("http")) {
     return url;
   }
 
-  // ✅ لو اللينك متخزن غلط ومعاه /Store-eCommercehttps
+  // ✅ رابط فيه مشكلة زي /Store-eCommercehttps...
   if (url.includes("http")) {
-    const fixedUrl = url.substring(url.indexOf("http"));
-    return fixedUrl;
+    return url.substring(url.indexOf("http"));
   }
 
-  // ✅ داخلي (صور موجودة في public/)
+  // ✅ صور داخلية من public
   return process.env.PUBLIC_URL + url;
 };
