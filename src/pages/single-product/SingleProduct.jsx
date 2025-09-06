@@ -116,7 +116,7 @@ const SingleProduct = () => {
     <div className="single-product">
       <div className="product-wrapper">
         <div className="product-image-wrapper">
-          <img src={product.image} alt={product.title} />
+          <img  src={product.image.replace("/Store-eCommerce", "")}  alt={product.title} />
         </div>
         <div className="product-info">
           <h1 className="product-title">{product.title}</h1>
