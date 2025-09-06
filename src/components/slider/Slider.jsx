@@ -52,15 +52,7 @@ import { useState } from "react";
 import "./slider.css";
 import Rating from "../rating/Rating";
 import { Link } from "react-router-dom";
-
-// دالة تساعد على ضبط الرابط
-const getImageUrl = (url) => {
-  if (!url) return "";
-  if (url.startsWith("http")) {
-    return url; // صورة خارجية
-  }
-  return process.env.PUBLIC_URL + url; // صورة داخلية
-};
+import { getImageUrl } from "../../utils/getImageUrl"; // ✅ استدعاء الدالة
 
 const Slider = ({ data }) => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -80,6 +72,7 @@ const Slider = ({ data }) => {
         onClick={() => handleClick("left")}
         className="bi bi-chevron-left arrow-left"
       ></button>
+
       <div
         style={{ transform: `translate(${slideIndex * -250}px)` }}
         className="slider-wrapper"
@@ -97,6 +90,7 @@ const Slider = ({ data }) => {
           </Link>
         ))}
       </div>
+
       <button
         disabled={slideIndex === 0}
         onClick={() => handleClick("right")}

@@ -75,7 +75,6 @@
 // };
 
 // export default SingleProduct;
-
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Rating from "../../components/rating/Rating";
@@ -85,15 +84,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchSingleProduct } from "../../redux/apiCalls/productApiCall";
 import Spinner from "../../components/spinner/Spinner";
 import { addToCart } from "../../redux/apiCalls/cartApiCall";
-
-// دالة تساعد على ضبط الرابط
-const getImageUrl = (url) => {
-  if (!url) return "";
-  if (url.startsWith("http")) {
-    return url; // صورة خارجية
-  }
-  return process.env.PUBLIC_URL + url; // صورة داخلية
-};
+import { getImageUrl } from "../../utils/getImageUrl"; // ✅ استدعاء الدالة
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -155,3 +146,4 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
+
